@@ -1,0 +1,43 @@
+  <div style="border: 2px solid grey; width: 75%; margin-left: 13%; padding:5px 5px;">
+   <form #userForm="ngForm" (ngSubmit) = "onSubmit(userForm.value)">
+   <div class="form-group">
+    <label for="exampleInputPassword1">Name</label>
+    <input style="background-color: #3a3636; color: white;" type="text" class="form-control" placeholder="Enter Name" id="name" required minlength="3" maxlength="30" name="who" ngModel #name="ngModel">
+    <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
+        <div [hidden]="!name.errors.required">
+          Name is required!
+        </div>
+        <div [hidden]="!name.errors.minlength">
+          Name Should contain more then 3 Char!
+        </div>
+        <div [hidden]="!name.errors.maxlength">
+          Name cannot be more than 30 characters long.
+        </div>
+      </div>
+    <label for="exampleInputPassword1">Email</label>
+    <input style="background-color: #3a3636; color: white;" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+" name="email" ngModel #email="ngModel">
+    <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
+        <div [hidden]="!email.errors.required">
+          Email is required!
+        </div>
+        <div [hidden]="!email.errors.pattern">
+          Must be a valid Email!
+        </div>
+      </div>
+
+    <small id="emailHelp" class="form-text text-muted">I'll never share your email with anyone else.</small><br>
+    <label for="exampleInputPassword1">Text</label>
+    <input style="height: 98px; width: 100%; background-color: #3a3636; color: white;" type="text" id="message" class="form-control" placeholder="Type here..." required minlength="3" maxlength="3000" name="message" ngModel #message="ngModel">
+    <div *ngIf="message.errors && (message.dirty || message.touched)" class="alert alert-danger">
+      <div [hidden]="!message.errors.required">
+        Message can't empty!
+      </div>
+      <div [hidden]="!message.errors.minlength">
+        Message is should larger then 3 char!
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!userForm.form.valid">Sent Mail</button>
+</form>
+<h5 style="color: lightgreen;">{{mesg?.msg}}</h5>
+</div>

@@ -1,2 +1,2 @@
 # portfolio
-Using Angular4+Nodejs+Nodemailer
+My personal website under working. With Angular 4+Nodejs

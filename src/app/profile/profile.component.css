@@ -1,0 +1,20 @@
+#der{
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+	top: 0;
+	bottom: 0;
+	height: 40vh;
+	z-index: -10;
+}
+#der-2{
+	position: relative;
+	top: 0;
+	bottom: 0;
+	height: 100%;
+	width: 40%;
+	z-index: -5;
+}
+div{
+	margin: 0;
+}
